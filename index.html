@@ -3,192 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আরাফাত কসমেটিক জোন | আসল কসমেটিকসের বিশ্বস্ত দোকান</title>
+    <title>আরাফাত কসমেটিক জোন | অনলাইন শপ</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { 
-            --pink: #d63384; 
-            --pink-dark: #b02a6b;
-            --green: #25D366; 
-            --light-bg: #f8f9fa;
-        }
-
+        :root { --pink: #e63988; --green: #25D366; --bg: #fdfdfd; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
-        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
+        body { background-color: var(--bg); color: #333; }
 
-        /* Header & Navigation */
-        header { 
-            background: white; 
-            padding: 15px 5%; 
-            text-align: center; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-        }
-        .logo { font-size: 28px; font-weight: 700; color: var(--pink); text-decoration: none; }
+        header { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 700; color: var(--pink); }
 
-        /* Search & Filter Section */
-        .search-container {
-            background: white;
-            padding: 20px 5%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            border-bottom: 1px solid #eee;
-        }
-        .search-box {
-            padding: 10px 15px;
-            border: 2px solid #eee;
-            border-radius: 25px;
-            width: 100%;
-            max-width: 400px;
-            outline: none;
-            transition: 0.3s;
-        }
-        .search-box:focus { border-color: var(--pink); }
+        .search-container { padding: 15px; text-align: center; background: white; }
+        #searchInput { width: 90%; max-width: 400px; padding: 12px 20px; border: 2px solid #eee; border-radius: 25px; outline: none; transition: 0.3s; font-size: 16px; }
+        #searchInput:focus { border-color: var(--pink); box-shadow: 0 0 10px rgba(230, 57, 136, 0.1); }
 
-        /* Hero Section */
-        .hero { 
-            background: linear-gradient(rgba(230, 57, 136, 0.05), rgba(230, 57, 136, 0.05)), url('https://www.transparenttextures.com/patterns/cubes.png');
-            padding: 40px 5%; 
-            text-align: center; 
-        }
-        .hero h1 { font-size: 32px; color: #222; margin-bottom: 10px; }
-        .hero p { color: #666; font-size: 18px; }
+        .hero { background: #fff5f8; padding: 30px 5%; text-align: center; border-bottom: 2px solid var(--pink); }
+        .hero h1 { font-size: 28px; margin-bottom: 5px; }
 
-        /* Product Grid */
-        .product-container { 
-            padding: 30px 5%; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
+        .product-container { padding: 20px 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
         
-        .product-card { 
-            background: white; 
-            border-radius: 15px; 
-            padding: 15px; 
-            text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            display: flex; 
-            flex-direction: column;
-            border: 1px solid transparent;
-        }
-        .product-card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--pink);
-            box-shadow: 0 10px 25px rgba(230, 57, 136, 0.1);
-        }
+        .product-card { background: white; border-radius: 15px; padding: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--pink); }
+        .product-card img { width: 100%; height: 230px; object-fit: contain; margin-bottom: 15px; border-radius: 10px; background: #fafafa; }
+        .product-card h3 { font-size: 18px; margin-bottom: 10px; height: 45px; overflow: hidden; }
+        .price { font-size: 22px; color: var(--pink); font-weight: 700; margin-bottom: 15px; }
         
-        .img-wrapper {
-            width: 100%;
-            height: 220px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #f9f9f9;
-        }
-        .product-card img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            transition: 0.5s;
-        }
-        .product-card:hover img { transform: scale(1.05); }
+        .buy-wa { background: var(--green); color: white; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-        .product-card h3 { 
-            font-size: 18px; 
-            margin-bottom: 10px; 
-            height: 50px; 
-            overflow: hidden; 
-            color: #444;
-        }
-        .price { 
-            font-size: 24px; 
-            color: var(--pink); 
-            font-weight: 700; 
-            margin-bottom: 15px; 
-        }
-        
-        .buy-wa { 
-            background: var(--green); 
-            color: white; 
-            padding: 12px; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: 600; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-            transition: 0.3s;
-        }
-        .buy-wa:hover { background: #1eb954; }
+        #loading { text-align: center; padding: 50px; font-size: 18px; color: var(--pink); }
+        footer { text-align: center; padding: 30px; background: #222; color: white; margin-top: 50px; }
 
-        /* Loading & Messages */
-        #loading { text-align: center; padding: 50px; font-size: 20px; color: var(--pink); }
-        .no-results { text-align: center; grid-column: 1 / -1; padding: 50px; font-size: 18px; color: #888; }
-
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            background: #222; 
-            color: white; 
-            margin-top: 50px; 
-        }
-
-        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .product-container { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 15px; }
+            .product-container { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
             .product-card { padding: 10px; }
-            .product-card h3 { font-size: 15px; height: 40px; }
+            .product-card img { height: 160px; }
+            .product-card h3 { font-size: 14px; height: 35px; }
             .price { font-size: 18px; }
-            .hero h1 { font-size: 24px; }
+            .hero h1 { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">আরাফাত কসমেটিক জোন</a>
-    </header>
+    <header><div class="logo">আরাফাত কসমেটিক জোন</div></header>
 
     <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="পণ্য খুঁজুন (যেমন: শ্যাম্পু, লোশন...)" onkeyup="filterProducts()">
+        <input type="text" id="searchInput" placeholder="আপনার পছন্দের পণ্যটি খুঁজুন..." onkeyup="filterProducts()">
     </div>
 
     <section class="hero">
         <h1>আসল কসমেটিকসের বিশ্বস্ত ঠিকানা</h1>
-        <p>সরাসরি আপনার পছন্দের পণ্যটি অর্ডার করুন</p>
+        <p>সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন</p>
     </section>
 
-    <div id="loading">
-        <i class="fas fa-spinner fa-spin"></i> পণ্য লোড হচ্ছে...
-    </div>
-
+    <div id="loading"><i class="fas fa-spinner fa-spin"></i> পণ্য লোড হচ্ছে...</div>
     <div class="product-container" id="productGrid"></div>
 
-    <footer>
-        <p>&copy; ২০২৪ আরাফাত কসমেটিক জোন | সর্বস্বত্ব সংরক্ষিত</p>
-        <p style="font-size: 12px; color: #888; margin-top: 10px;">Developed by Your Brand</p>
-    </footer>
+    <footer><p>&copy; ২০২৪ আরাফাত কসমেটিক জোন</p></footer>
 
     <script>
-        // আপনার গুগল শিট আইডি এখানে দিন
-        const sheetId = '1fQcd7Zw_xCfWUg2uM5_P0bFHf2K_tUsz';
+        // নতুন গুগল শিট আইডি আপডেট করা হয়েছে
+        const sheetId = '1Pn66k1IM8fU2Sy6jXABzq1x7DiIDXTfIjaHfurhqb8c';
         const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
 
         let allProducts = [];
 
-        // গুগল ড্রাইভ ইমেজের লিঙ্ক ঠিক করার ফাংশন
         function fixImgLink(link) {
+            if (!link) return 'https://via.placeholder.com/300x300?text=No+Image';
             if (link.includes('drive.google.com')) {
                 let id = link.split('/d/')[1]?.split('/')[0] || link.split('id=')[1]?.split('&')[0];
                 return `https://docs.google.com/uc?export=view&id=${id}`;
@@ -212,35 +95,31 @@
                             wa: cols[3].replace(/"/g, "").trim()
                         };
                     }
-                    return null;
                 }).filter(p => p && p.name);
 
                 displayProducts(allProducts);
                 document.getElementById('loading').style.display = 'none';
             } catch (error) {
-                document.getElementById('loading').innerHTML = 
-                    `<p style="color:red">ডাটা লোড করতে সমস্যা হচ্ছে।<br>আপনার গুগল শিটটি 'Public' করা আছে তো?</p>`;
+                document.getElementById('loading').innerHTML = 'ডাটা লোড হচ্ছে না। আপনার গুগল শিটটি <b>"Anyone with the link"</b> করা আছে কি?';
             }
         }
 
         function displayProducts(products) {
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
-
-            if (products.length === 0) {
-                grid.innerHTML = `<div class="no-results">দুঃখিত, কোনো পণ্য পাওয়া যায়নি!</div>`;
+            
+            if(products.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:20px;">কোনো পণ্য পাওয়া যায়নি!</p>';
                 return;
             }
 
             products.forEach(p => {
                 grid.innerHTML += `
                     <div class="product-card">
-                        <div class="img-wrapper">
-                            <img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" alt="${p.name}">
-                        </div>
+                        <img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" alt="${p.name}">
                         <h3>${p.name}</h3>
                         <p class="price">৳ ${p.price}</p>
-                        <a href="https://wa.me/${p.wa}?text=আসসালামু আলাইকুম, আমি এই পণ্যটি নিতে চাই:%0Aপণ্য: ${p.name}%0Aমূল্য: ৳ ${p.price}" class="buy-wa" target="_blank">
+                        <a href="https://wa.me/${p.wa}?text=আসসালামু আলাইকুম, আমি '${p.name}' পণ্যটি অর্ডার করতে চাই।" class="buy-wa" target="_blank">
                             <i class="fab fa-whatsapp"></i> অর্ডার করুন
                         </a>
                     </div>
@@ -250,9 +129,7 @@
 
         function filterProducts() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = allProducts.filter(p => 
-                p.name.toLowerCase().includes(searchTerm)
-            );
+            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(searchTerm));
             displayProducts(filtered);
         }
 
